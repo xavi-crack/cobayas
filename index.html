@@ -1,6 +1,84 @@
 <!DOCTYPE html>
-<html>
-    <head>  
-        <title>Project Cobaya</title>
-    </head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido al Mundo Cobaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos generales para centrar todo */
+        body {
+            margin: 0;
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+            display: flex;
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            /* Un fondo degradado suave color crema/naranja */
+            background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+            font-family: 'Fredoka One', cursive;
+            overflow: hidden;
+        }
+
+        /* Estilos del Botón Gigante */
+        .boton-cobaya {
+            display: inline-block;
+            text-decoration: none; /* Quitar subrayado del enlace */
+            font-size: 4rem; /* Tamaño de letra gigante */
+            color: #fff;
+            background-color: #e67e22; /* Color naranja cobaya */
+            padding: 50px 100px;
+            border-radius: 60px; /* Bordes muy redondos */
+            border: 8px solid #d35400; /* Borde más oscuro */
+            box-shadow: 0 15px 0 #a04000, 0 25px 20px rgba(0,0,0,0.2); /* Efecto 3D */
+            transition: all 0.2s ease; /* Suavizar animación */
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        /* Icono dentro del botón */
+        .icono {
+            font-size: 5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* EFECTOS INTERACTIVOS (HOVER Y CLICK) */
+        
+        /* Cuando pasas el mouse por encima */
+        .boton-cobaya:hover {
+            transform: translateY(-5px); /* El botón sube un poco */
+            background-color: #f39c12; /* Se pone más brillante */
+            box-shadow: 0 20px 0 #a04000, 0 35px 30px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        /* Cuando haces click (efecto de presionar) */
+        .boton-cobaya:active {
+            transform: translateY(15px); /* El botón baja */
+            box-shadow: 0 0 0 #a04000, 0 0 0 rgba(0,0,0,0); /* La sombra desaparece */
+            border-top: 8px solid #a04000;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 600px) {
+            .boton-cobaya {
+                font-size: 2rem;
+                padding: 30px 40px;
+            }
+            .icono {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="inicio.html" class="boton-cobaya">
+        <span class="icono">🐹</span>
+        ENTRAR
+    </a>
+
+</body>
 </html>
