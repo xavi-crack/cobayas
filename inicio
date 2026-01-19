@@ -3,54 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Oficial de Cobayas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>Cobayas Studio - Home</title>
     <style>
+        /* --- 1. CARGAMOS TU FUENTE PERSONALIZADA --- */
+        @font-face {
+            font-family: 'MiFuenteCobayas';
+            src: url('CobayasFont-Regular.ttf'); /* Asegúrate que este sea el nombre en GitHub */
+        }
+
+        /* --- 2. VARIABLES DE COLOR --- */
+        :root {
+            --fondo: #000000;  /* Carbón */
+            --texto: #F0EAD6;  /* Hueso */
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Fredoka One', cursive;
-            background-color: #fff8e1;
-            color: #5d4037;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #e67e22;
-            font-size: 3em;
-        }
-        p {
-            font-family: sans-serif;
-            font-size: 1.2em;
+            background-color: var (--fondo);
+            color: var (--texto);
+            /* FUENTE PARA EL TEXTO NORMAL (Párrafos) */
+            font-family: 'Courier New', Courier, monospace; 
+            margin: 0;
             line-height: 1.6;
+            font-size: 16 px;
         }
-        .contenedor {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+        /* --- 3. ESTILOS DE TEXTO --- */
+        
+        /* Títulos y Botones usan TU FUENTE */
+        h1, h2, .btn, nav a {
+            font-family: 'MiFuenteCobayas', sans-serif;
+            text-transform: uppercase;
         }
-        .volver {
-            display: inline-block;
-            margin-top: 20px;
+
+        h2 {
+            font-size: 3 em; /* Más grandes para que luzca la fuente */
+            border-left: 8 px solid var (--texto);
+            padding-left: 20 px;
+            margin-bottom: 30 px;
+            letter-spacing: 2 px;
+        }
+
+        p {
+            font-size: 1.1 em;
+            margin-bottom: 20 px;
+        }
+
+        /* --- 4. NAVEGACIÓN --- */
+        nav {
+            background-color: var (--fondo);
+            border-bottom: 3 px solid var (--texto);
+            padding: 15 px 0;
+            position: fixed;
+            top: 0;
+            width: 100 %;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        nav a {
+            color: var (--texto);
             text-decoration: none;
-            color: #e67e22;
-            font-weight: bold;
+            font-size: 1.5 em; /* Un poco más grande para que se lea tu fuente */
+            margin: 0 15 px;
         }
+        nav a:hover {
+            color: var (--fondo);
+            background-color: var (--texto);
+            padding: 2 px 10 px;
+        }
+
+        /* --- 5. PORTADA (HERO) --- */
+        header {
+            height: 100 vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20 px;
+            border-bottom: 3 px solid var (--texto);
+            padding-top: 80 px; /* Para que el menú no tape el contenido */
+        }
+
+        .logo-hero {
+            width: 500 px;
+            max-width: 90 %;
+            margin-bottom: 30 px;
+        }
+
+        .hero-text { 
+            font-size: 1.2 em; 
+            max-width: 700 px; 
+            margin-bottom: 40 px; 
+            font-style: italic; 
+        }
+
+        /* --- 6. SECCIONES --- */
+        section { padding: 80 px 10 %; border-bottom: 3 px solid var (--texto); }
+
+        /* --- 7. BOTONES (CON TU FUENTE) --- */
+        .btn {
+            display: inline-block;
+            background-color: var (--texto);
+            color: var (--fondo);
+            padding: 15 px 30 px;
+            font-size: 1.5 em; /* Tamaño grande para lucir la fuente */
+            text-decoration: none;
+            margin-top: 20 px;
+            border: 3 px solid var (--texto);
+            box-shadow: 6 px 6 px 0 px rgba (0,0,0,0.5);
+            transition: all 0.2 s;
+        }
+        .btn:hover {
+            background-color: var (--fondo);
+            color: var (--texto);
+            box-shadow: 6 px 6 px 0 px var (--texto);
+            transform: translate (2 px, 2 px);
+            cursor: pointer;
+        }
+        
+        /* FOOTER */
+        footer { text-align: center; padding: 60 px; opacity: 0.6; }
+
     </style>
 </head>
 <body>
 
-    <div class="contenedor">
-        <h1>¡Bienvenidos al Paraíso Cobaya!</h1>
-        <p>Aquí encontrarás todo sobre la alimentación, cuidados y ruidos graciosos que hacen estos pequeños roedores.</p>
-        
-        <br>
-        <div style="font-size: 50px;">🥬 🥕 🐹</div>
-        <br>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#merch">Merch</a>
+    </nav>
 
-        <a href="index.html" class="volver">← Volver al botón gigante</a>
-    </div>
+    <header id="inicio">
+        <img src="logo1.png" alt="Cobayas Studio" class="logo-hero">
+        
+        <p class="hero-text">"Donde el pasado andino se encuentra con el pixel."</p>
+        
+        <a href="#juegos" class="btn">Explorar Proyectos</a>
+    </header>
+
+    <section id="juegos">
+        <h2>Nuestros Juegos</h2>
+        <p>Pronto subiremos las capturas de pantalla de La Ciudad Perdida y Leyendas.</p>
+        <a href="#" class="btn">Ver Demo</a>
+    </section>
+
+    <section id="cursos">
+        <h2>Academia</h2>
+        <p>Aprende a crear videojuegos usando GDevelop sin programar código complejo.</p>
+        <a href="#" class="btn">Ver Temario</a>
+    </section>
+
+    <section id="merch">
+        <h2>Tienda Oficial</h2>
+        <p>Camisetas, stickers y arte digital de Cobayas.</p>
+        <a href="https://wa.me/593XXXXXXXXX" class="btn">WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Cobayas Studio. Riobamba, Ecuador.</p>
+    </footer>
 
 </body>
 </html>
