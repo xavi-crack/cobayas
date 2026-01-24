@@ -1,1 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos - Cobayas Studio</title>
+    
+    <link rel="icon" type="image/png" href="./logo1.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <style>
+        /* --- FUENTE PERSONALIZADA --- */
+        @font-face {
+            font-family: 'CobayasFont';
+            src: url('./CobayasFont-Regular.ttf') format('truetype');
+        }
+
+        /* --- COLORES Y BASE --- */
+        :root {
+            --bg-color: #000000;
+            --card-bg: #111111;
+            --text-color: #ffffff;
+            --accent-color: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 60px;
+        }
+
+        a { text-decoration: none; color: white; transition: 0.3s; }
+
+        /* --- HEADER (IGUAL A HOME) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px; 
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'CobayasFont';
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: white;
+            line-height: 1; /* Agregado para estabilidad */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        /* --- AQUÍ ESTÁ LA CORRECCIÓN --- */
+        nav a {
+            font-family: 'CobayasFont', sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            /* ESTAS SON LAS LÍNEAS QUE FALTABAN: */
+            display: inline-block; 
+            line-height: 1;       
+            
+            padding-bottom: 5px; 
+            /* Cambié 1px a 2px para que sea idéntico a Home */
+            border-bottom: 2px solid transparent; 
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* Clase para la página activa */
+        nav a.active {
+            /* Cambié 1px a 2px */
+            border-bottom: 2px solid white;
+        }
+
+        /* --- GALERÍA DE JUEGOS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            font-family: 'CobayasFont';
+            text-align: center;
+            font-size: 70px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background-color: #222;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .game-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-title {
+            font-family: 'CobayasFont';
+            font-size: 35px;
+            margin: 0 0 15px 0;
+            line-height: 1;
+        }
+
+        .game-desc {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .play-btn {
+            display: block;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            border-radius: 4px;
+        }
+
+        .play-btn:hover {
+            background-color: white;
+            color: black;
+        }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+        }
+
+        /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
+        body {
+            /* La magia ocurre aquí: */
+            animation: aparecer 0.8s ease-out;
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(10px); /* Empieza un poco más abajo */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Termina en su lugar */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration: none;">cobayas</a>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Inicio</a></li>
+                <li><a href="juegos.html" class="active">Juegos</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="merch.html">Merch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Proyectos</h1>
+
+        <div class="games-grid">
+            
+            <article class="game-card">
+                <img src="logo1.png" alt="Children of Malvinas" class="game-image">
+                <div class="game-info">
+                    <h2 class="game-title">Cobayas Prime</h2>
+                    <p class="game-desc">
+                        Videojuego ganador de los fondos semilla de Manta mía
+                        basado en la ciudad de manta y a futuro se busca expandir a
+                        explorar todas las regiones del Ecuador.
+                    </p>
+                    <a href="#" class="play-btn">Ver Detalles</a>
+                </div>
+            </article>
+
+            <article class="game-card">
+                <div class="game-image" style="background: #222; display:flex; align-items:center; justify-content:center; color:#444;">
+                    EN DESARROLLO
+                </div>
+                <div class="game-info">
+                    <h2 class="game-title">Umiña</h2>
+                    <p class="game-desc">
+                        Novela visual que relata la historia de la Diosa Umiña
+                        leyenda local Mantense que relata la historia y Cultura
+                        de la antigua civilización de los Mantas.
+                    </p>
+                    <a href="#" class="play-btn">Próximamente</a>
+                </div>
+            </article>
+
+            <article class="game-card">
+                <div class="game-image" style="background: #222;"></div>
+                <div class="game-info">
+                    <h2 class="game-title">Game Jams</h2>
+                    <p class="game-desc">
+                        Colección de prototipos rápidos y experimentos 
+                        de mecánicas creados en eventos de 48 horas en la GGJ Quito.
+                    </p>
+                    <a href="#" class="play-btn">Jugar Demos</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+</html>
