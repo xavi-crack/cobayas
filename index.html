@@ -3,67 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobayas</title>
-    
+    <title>Cobayas Studio</title>
+    <link rel="icon" type="image/png" href="./logo1.png">
     <style>
-        /* Aquí deberás colocar la ruta a tu archivo de fuente.
-           Asegúrate de que el archivo 'Cobayas-Regular.woff2' exista. */
         @font-face {
-            font-family: 'Cobayas';
-            src: url('Cobayas-Regular.woff2') format('woff2'),
-                 url('Cobayas-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
+            font-family: 'CobayasFont';
+            src: url('./CobayasFont-Regular.ttf') format('truetype');
         }
 
-        /* Estilos generales para centrar todo */
-        body {
+        body, html {
             margin: 0;
-            height: 100vh; /* Ocupa toda la altura de la pantalla */
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
             display: flex;
-            justify-content: center; /* Centrado horizontal */
-            align-items: center; /* Centrado vertical */
-            /* Fondo negro sólido */
-            background-color: #000000;
-            font-family: 'Cobayas', cursive;
-            overflow: hidden;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Estilos del Botón Gigante */
-        .boton-cobaya {
-            display: inline-block;
-            text-decoration: none; /* Quitar subrayado del enlace */
-            font-size: 8rem; /* Tamaño de letra gigante */
-            color: #FFFDD0; /* Color crema para la palabra */
-            background-color: transparent; /* Fondo transparente para el botón */
-            padding: 0; /* Sin relleno */
-            border-radius: 0; /* Sin bordes redondos */
-            border: none; /* Sin borde */
-            box-shadow: none; /* Sin sombra */
-            transition: all 0.3s ease-in-out; /* Suavizar animación */
+        #interactive-btn {
+            font-family: 'CobayasFont', sans-serif;
+            color: white;
+            text-decoration: none;
+            font-size: 130px; 
+            
+            /* ESTADO INICIAL: Letras juntas (o normales) */
+            letter-spacing: 2px; 
+            
+            /* Animación suave para el espaciado */
+            transition: letter-spacing 0.5s ease; 
+            
+            user-select: none;
             text-align: center;
+            /* White-space nowrap asegura que el texto no salte de línea al expandirse */
+            white-space: nowrap; 
         }
 
-        /* EFECTOS INTERACTIVOS (HOVER Y CLICK) */
-        
-        /* Cuando pasas el mouse por encima: Expansión y contracción suave */
-        .boton-cobaya:hover {
-            transform: scale(1.1); /* Se expande al 110% */
-            cursor: pointer;
+        #interactive-btn:hover {
+            /* ESTADO EXPANDIDO: Aquí decides cuánto se separan */
+            letter-spacing: 20px; 
+        }
+        /* --- ANIMACIÓN DE ENTRADA SUAVE --- */
+        body {
+            /* La magia ocurre aquí: */
+            animation: aparecer 0.8s ease-out;
         }
 
-        /* Ajuste para celulares */
-        @media (max-width: 600px) {
-            .boton-cobaya {
-                font-size: 4rem;
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(10px); /* Empieza un poco más abajo */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Termina en su lugar */
             }
         }
     </style>
 </head>
 <body>
 
-    <a href="inicio.html" class="boton-cobaya">
-        Cobayas
+    <a href="Home.html" id="interactive-btn">
+        COBAYAS
     </a>
 
 </body>
